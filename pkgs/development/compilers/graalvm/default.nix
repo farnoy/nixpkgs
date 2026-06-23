@@ -26,6 +26,12 @@ lib.makeScope pkgs.newScope (
     graalvm-oracle_25 = (self.callPackage ./graalvm-oracle { version = "25"; }).overrideAttrs (prev: {
       autoPatchelfIgnoreMissingDeps = [ "libonnxruntime.so.1" ];
     });
+    graalvm-oracle_25-ea =
+      (self.callPackage ./graalvm-oracle { version = "25i1-25.0.3-ea.33"; }).overrideAttrs
+        (prev: {
+          autoPatchelfIgnoreMissingDeps = [ "libonnxruntime.so.1" ];
+        });
+    graalvm-oracle_ea = self.graalvm-oracle_25-ea;
     graalvm-oracle_17 = self.callPackage ./graalvm-oracle { version = "17"; };
     graalvm-oracle = self.graalvm-oracle_25;
   }
@@ -33,6 +39,5 @@ lib.makeScope pkgs.newScope (
     graalvm-oracle_22 = throw "GraalVM 22 is EOL, use a newer version instead";
     graalvm-oracle_23 = throw "GraalVM 23 is EOL, use a newer version instead";
     graalvm-oracle_24 = throw "GraalVM 24 is EOL, use a newer version instead";
-    graalvm-oracle_25-ea = throw "GraalVM 25-ea has been replaced by GraalVM 25";
   }
 )
