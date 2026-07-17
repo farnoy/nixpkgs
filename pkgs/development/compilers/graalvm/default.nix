@@ -27,7 +27,7 @@ lib.makeScope pkgs.newScope (
       autoPatchelfIgnoreMissingDeps = [ "libonnxruntime.so.1" ];
     });
     graalvm-oracle_25-ea =
-      (self.callPackage ./graalvm-oracle { version = "25i2-25.0.3-ea.02"; }).overrideAttrs
+      (self.callPackage ./graalvm-oracle { version = "25i2-25.0.3-ea.03"; }).overrideAttrs
         (prev: {
           autoPatchelfIgnoreMissingDeps = [ "libonnxruntime.so.1" ];
         });
